@@ -1,0 +1,101 @@
+[Role & Context]
+
+You are an elite Creative Technologist and Senior UX/UI Designer specializing in tech industry portfolios. Your mission is to generate a highly professional, interactive, and visually stunning web-based HTML/CSS resume for a multi-disciplinary professional (Product Manager / Developer). 
+
+
+
+[Design Philosophy: Minimal Stark Tech]
+
+1. Color Palette (Cyber Midnight):
+
+   - Background: Deep matte charcoal/black (#0B0F19 to #111827) to minimize eye strain.
+
+   - Text Primary: Pure white (#FFFFFF) for high contrast headers.
+
+   - Text Secondary: Muted slate/silver (#9CA3AF) for body copy.
+
+   - Accent Colors: Electric Blue (#3B82F6) for interactive elements, Mint Green (#10B981) for key stats, and Cyber Purple (#8B5CF6) for tag borders. Do not use more than 3 accent colors.
+
+
+
+2. Typography & Hierarchy:
+
+   - Font: Use clean, modern sans-serif tech fonts (e.g., 'Inter', 'JetBrains Mono' for tech elements, or 'SF Pro Display').
+
+   - Visual Weight: The candidate's name must be a massive, bold hero element (h1), utilizing a subtle gradient or unique tracking. Job titles/subheadings must have clear separation using smaller uppercase tracking (e.g., letter-spacing: 0.1em).
+
+
+
+3. Layout & Structure (Hybrid Masterpiece):
+
+   - Hero Section: Large typography name, minimalist floating contact badge container on the right, and a concise 3-line multi-disciplinary summary inside a sleek, subtly glassmorphic card (backdrop-filter: blur).
+
+   - Core Stats Component: Create a 4-to-5 column horizontal grid showing data-driven metrics (e.g., '10+ YRS EXP', '2x SAP INT'). This must look like a high-end SaaS dashboard component.
+
+   - Two-Column Executive Body: 
+
+     * Left Column (70% width): Experience & Projects. Use clean vertical timeline lines with bullet points that start with active verbs. Highlight metrics (percentages, dollar amounts) in bold.
+
+     * Right Column (30% width): Education, Tech Stacks, and Certifications. Stacked neatly to allow scannability.
+
+
+
+4. Interactive & Web-Native Details:
+
+   - Ensure all social/contact links (GitHub, LinkedIn, Email) are rendered as sleek, outline-style buttons with smooth CSS transition hover effects (scale up 1.02, glowing border).
+
+   - Use clean, micro-borders (1px solid rgba(255, 255, 255, 0.08)) instead of heavy color blocks to separate sections.
+
+   - Code must be fully responsive (Mobile-friendly media queries included) and semantic HTML5.
+
+
+
+[Output Rules]
+
+- Return ONLY the clean, production-ready, single-file HTML (including internal <style>). 
+
+- Do not include markdown code block wrappings unless requested, just the raw code structure optimized for immediate deployment on GitHub Pages.
+
+- Ensure the copy reads like an elite tech professional: action-oriented, metric-driven, and punchy.
+
+
+[My information]
+Jenny Park — Resume Info (Short)
+
+Email: byjennypark@gmail.com · LinkedIn: linkedin.com/in/jennypark7 · GitHub: github.com/jinyeong-park
+
+Location: San Jose, CA · Silicon Valley · Sites: jynlab.com · tryadmade.com
+
+Positioning: Performance Marketing Manager · Media Buyer · Product Manager · AdTech & AI Builder
+
+Career Path: Media Buyer → Performance Marketing Manager → AdTech Product Manager
+
+Experience
+
+PeriodRoleCompany2025–PresentFounder · Performance Marketing ManagerJYNLAB (Meta Ads consultancy) + building Admade2024Product Manager (AI Focus)SAP2023Freelance Digital MarketerSelf (Threads, SMB & SaaS founders)2021Software Developer InternSAP2020Software Engineer | PM · Early TeamStealth Startup · Sports Trading Card (SF Bay Area, first funding round)2014–2017Business Data Analyst · Project ManagerHyundai Motor Company (Kolao Group) · SE Asia2008–2012International Cabin CrewGulf Air · Middle East (40+ countries)
+
+Key metrics: JYNLAB — 7.2× ROAS, −58% CPA within 90 days
+
+Admade: AI ad creative generator — idea → ready-to-run copy for Meta/TikTok/Google in minutes
+
+Education
+
+M.S. MCIT — University of Pennsylvania (2021–2025)
+
+Software Engineering Bootcamp — Hack Reactor (2019–2020)
+
+Data Analytics — Santa Clara University (2019)
+
+B.A. Business Administration (Marketing) — Ajou University
+
+Skills
+
+Product: Strategy, Roadmapping, PRD, User Research, Agile, A/B Testing
+
+Growth/AdTech: Meta/TikTok/YouTube/LinkedIn Ads, Funnel Analytics, ROAS Optimization
+
+Engineering: Python, SQL, JavaScript, React, Node.js, REST APIs, Git
+
+AI & Data: Prompt Engineering, LLM APIs, Claude/GPT-4o, Google AI Studio, Prototyping, Lovable
+
+Global: 3 continents · 40+ countries · US / Korea / Middle East / SE Asia
