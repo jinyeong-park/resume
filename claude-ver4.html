@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenny Park — Performance Marketing · AdTech · Product</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+    :root {
+      --bg: #F8F7F4;
+      --surface: #FFFFFF;
+      --ink: #1C1917;
+      --ink-muted: #57534E;
+      --ink-subtle: #A8A29E;
+      --accent: #1E3A8A;
+      --accent-light: #EFF3FF;
+      --accent-mid: #3B5FBF;
+      --rule: #E7E5E4;
+      --tag-bg: #F1F5F9;
+      --tag-text: #334155;
+      --metric: #065F46;
+      --metric-bg: #ECFDF5;
+      --page-max: 900px;
+      --gutter: 48px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 14px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrap {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 40px var(--gutter);
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent) 0%, #3B82F6 50%, #06B6D4 100%);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+    }
+
+    .contact-grid a, .contact-grid span {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s ease;
+    }
+
+    .contact-grid a:hover { color: var(--accent); }
+
+    .contact-grid svg { flex-shrink: 0; opacity: .65; }
+
+    .header-badge-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .status-badge {
+      background: var(--metric-bg);
+      color: var(--metric);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid #A7F3D0;
+      white-space: nowrap;
+    }
+
+    .location-badge {
+      font-size: 12px;
+      color: var(--ink-subtle);
+      font-weight: 500;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    /* ── SUMMARY ── */
+    .summary-section {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      color: #1E3A8A;
+      line-height: 1.65;
+    }
+
+    .summary-section p { margin: 0; }
+
+    /* ── LAYOUT ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.03);
+    }
+
+    .card-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── SKILLS ── */
+    .skill-group { margin-bottom: 14px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 7px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 5px;
+      line-height: 1.5;
+      border: 1px solid #E2E8F0;
+    }
+
+    .tag.accent {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-color: #C7D7FB;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item { margin-bottom: 14px; }
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .edu-school {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    .edu-year {
+      font-size: 11px;
+      color: var(--ink-subtle);
+      margin-top: 2px;
+    }
+
+    /* ── GLOBAL ── */
+    .globe-stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+
+    .globe-stat:last-child { margin-bottom: 0; }
+
+    .globe-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main-col { display: flex; flex-direction: column; gap: 20px; }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .exp-dates {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--ink-subtle);
+      white-space: nowrap;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .exp-location {
+      font-size: 11.5px;
+      color: var(--ink-subtle);
+      margin-bottom: 10px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .exp-bullets li {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .exp-bullets strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--metric-bg);
+      color: var(--metric);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── PROJECTS ── */
+    .project-item {
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .project-name a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .project-name a:hover { color: var(--accent-mid); text-decoration: underline; }
+
+    .project-type {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .project-stack { display: flex; flex-wrap: wrap; gap: 4px; }
+
+    .stack-tag {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-subtle);
+      background: var(--tag-bg);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--rule);
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; font-size: 12px; }
+      .page-wrap { padding: 16px; max-width: 100%; }
+      header, .card { box-shadow: none; border: 1px solid #E5E7EB; }
+      @page { margin: 15mm; size: A4; }
+      .two-col { grid-template-columns: 220px 1fr; }
+      a { color: var(--accent) !important; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .two-col { grid-template-columns: 1fr; }
+      .header-inner { grid-template-columns: 1fr; }
+      .header-badge-col { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      h1 { font-size: 28px; }
+      header { padding: 28px 20px; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <p class="tagline">Performance Marketing · AdTech · Product</p>
+        <h1>Jenny Park</h1>
+        <nav class="contact-grid" aria-label="Contact information">
+          <a href="mailto:byjennypark@gmail.com">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            byjennypark@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/jennypark7" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/jennypark7
+          </a>
+          <a href="https://github.com/jinyeong-park" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            github.com/jinyeong-park
+          </a>
+          <a href="https://jynlab.com" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            jynlab.com
+          </a>
+          <a href="https://tryadmade.com" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            tryadmade.com
+          </a>
+        </nav>
+      </div>
+      <div class="header-badge-col">
+        <span class="status-badge">Open to Opportunities</span>
+        <p class="location-badge">San Jose, CA<br>Silicon Valley</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── EXECUTIVE SUMMARY ── -->
+  <section class="summary-section" aria-label="Professional summary">
+    <p>Growth-focused builder with <strong>10+ years spanning performance marketing, product management, and software engineering</strong> across 3 continents. Proven operator at the intersection of paid media and AI — driving <strong>7.2× ROAS and −58% CPA</strong> for clients while launching Admade, an AI ad creative platform for Meta, TikTok, and Google. M.S. Computer Science (UPenn) with hands-on engineering and enterprise PM experience at SAP.</p>
+  </section>
+
+  <!-- ── TWO-COLUMN LAYOUT ── -->
+  <div class="two-col">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+
+      <!-- Skills -->
+      <section class="card" aria-label="Skills">
+        <h2 class="card-title">Skills &amp; Tools</h2>
+
+        <div class="skill-group">
+          <p class="skill-group-label">Product</p>
+          <div class="tags">
+            <span class="tag">Strategy</span>
+            <span class="tag">Roadmapping</span>
+            <span class="tag">PRD</span>
+            <span class="tag">User Research</span>
+            <span class="tag">Agile</span>
+            <span class="tag">A/B Testing</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-label">Growth · AdTech</p>
+          <div class="tags">
+            <span class="tag accent">Meta Ads</span>
+            <span class="tag accent">TikTok Ads</span>
+            <span class="tag accent">YouTube Ads</span>
+            <span class="tag accent">LinkedIn Ads</span>
+            <span class="tag">Funnel Analytics</span>
+            <span class="tag">ROAS Optimization</span>
+            <span class="tag">CPA Reduction</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-label">Engineering</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-label">AI &amp; Data</p>
+          <div class="tags">
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">LLM APIs</span>
+            <span class="tag">Claude / GPT-4o</span>
+            <span class="tag">Google AI Studio</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Lovable</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="card" aria-label="Education">
+        <h2 class="card-title">Education</h2>
+
+        <div class="edu-item">
+          <p class="edu-degree">M.S. MCIT</p>
+          <p class="edu-school">University of Pennsylvania</p>
+          <p class="edu-year">2021 – 2025</p>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">Software Engineering Bootcamp</p>
+          <p class="edu-school">Hack Reactor</p>
+          <p class="edu-year">2019 – 2020</p>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">Data Analytics Certificate</p>
+          <p class="edu-school">Santa Clara University</p>
+          <p class="edu-year">2019</p>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">B.A. Business Administration</p>
+          <p class="edu-school">Ajou University · Marketing</p>
+          <p class="edu-year">South Korea</p>
+        </div>
+      </section>
+
+      <!-- Global -->
+      <section class="card" aria-label="Global experience">
+        <h2 class="card-title">Global Footprint</h2>
+        <div class="globe-stat">
+          <span class="globe-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </span>
+          3 continents · 40+ countries
+        </div>
+        <div class="globe-stat">
+          <span class="globe-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+          US · Korea · Middle East · SE Asia
+        </div>
+        <div class="globe-stat">
+          <span class="globe-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          Multilingual · Cross-cultural leadership
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- ── MAIN ── -->
+    <main class="main-col">
+
+      <!-- Experience -->
+      <section class="card" aria-label="Professional experience">
+        <h2 class="card-title">Professional Experience</h2>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <div>
+              <p class="exp-role">Founder · Performance Marketing Manager</p>
+              <p class="exp-company">JYNLAB — Meta Ads Consultancy</p>
+              <p class="exp-location">San Jose, CA (Remote)</p>
+            </div>
+            <time class="exp-dates">2025 – Present</time>
+          </div>
+          <ul class="exp-bullets">
+            <li>Delivered <span class="metric-pill">7.2× ROAS</span> and <span class="metric-pill">−58% CPA</span> within 90 days for SMB and SaaS clients via precision <strong>Meta Ads</strong> strategy and creative iteration.</li>
+            <li>Building <strong>Admade</strong> — an AI ad creative generator that transforms a brief into ready-to-run copy for <strong>Meta, TikTok, and Google</strong> in minutes, powered by LLM APIs.</li>
+            <li>Designed full-funnel campaign architecture using <strong>audience segmentation, creative A/B testing, and CAPI integration</strong> to maximize signal quality.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <div>
+              <p class="exp-role">Product Manager — AI Focus</p>
+              <p class="exp-company">SAP</p>
+              <p class="exp-location">Silicon Valley, CA</p>
+            </div>
+            <time class="exp-dates">2024</time>
+          </div>
+          <ul class="exp-bullets">
+            <li>Defined product requirements and roadmap for AI-integrated enterprise features, collaborating cross-functionally with engineering, design, and go-to-market teams.</li>
+            <li>Translated complex user research into actionable <strong>PRDs and sprint priorities</strong>, accelerating delivery cadence for high-visibility AI initiatives.</li>
+            <li>Leveraged background in performance marketing to bring user-centric, data-driven thinking into <strong>B2B product development</strong>.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <div>
+              <p class="exp-role">Freelance Digital Marketer</p>
+              <p class="exp-company">Independent — SMB &amp; SaaS Founders</p>
+              <p class="exp-location">Remote</p>
+            </div>
+            <time class="exp-dates">2023</time>
+          </div>
+          <ul class="exp-bullets">
+            <li>Grew Threads presence and content strategy for multiple early-stage founders, establishing brand voice across <strong>multi-platform social ecosystems</strong>.</li>
+            <li>Built and optimized paid acquisition funnels for SaaS products, coupling <strong>creative testing with performance analytics</strong> to reduce acquisition costs.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <div>
+              <p class="exp-role">Software Developer Intern</p>
+              <p class="exp-company">SAP</p>
+              <p class="exp-location">Silicon Valley, CA</p>
+            </div>
+            <time class="exp-dates">2021</time>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed and shipped features within enterprise software products using <strong>JavaScript, React, and REST APIs</strong>, gaining deep exposure to large-scale engineering practices.</li>
+            <li>Collaborated with senior engineers in <strong>Agile sprints</strong>, contributing to code reviews, test coverage, and technical documentation.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <div>
+              <p class="exp-role">Software Engineer · Product Manager</p>
+              <p class="exp-company">Stealth Startup — Sports Trading Card Platform</p>
+              <p class="exp-location">SF Bay Area (First Funding Round)</p>
+            </div>
+            <time class="exp-dates">2020</time>
+          </div>
+          <ul class="exp-bullets">
+            <li>Joined as an early team member post-first-funding; wore both <strong>engineering and PM hats</strong> to build core product features under tight resource constraints.</li>
+            <li>Shaped product direction through <strong>user interviews, market research, and rapid prototyping</strong>, informing the go-to-market strategy for the platform launch.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <div>
+              <p class="exp-role">Business Data Analyst · Project Manager</p>
+              <p class="exp-company">Hyundai Motor Company · Kolao Group</p>
+              <p class="exp-location">Southeast Asia</p>
+            </div>
+            <time class="exp-dates">2014 – 2017</time>
+          </div>
+          <ul class="exp-bullets">
+            <li>Managed cross-border business analysis and project delivery for <strong>automotive operations across SE Asia</strong>, coordinating multinational stakeholder groups.</li>
+            <li>Built <strong>reporting dashboards and data models</strong> to track KPIs and inform strategic decisions for regional market expansion.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <div class="exp-header">
+            <div>
+              <p class="exp-role">International Cabin Crew</p>
+              <p class="exp-company">Gulf Air</p>
+              <p class="exp-location">Middle East · 40+ Countries</p>
+            </div>
+            <time class="exp-dates">2008 – 2012</time>
+          </div>
+          <ul class="exp-bullets">
+            <li>Delivered premium service across <strong>40+ countries</strong>, developing deep cross-cultural communication skills and operational composure under pressure.</li>
+          </ul>
+        </article>
+
+      </section>
+
+      <!-- Projects -->
+      <section class="card" aria-label="Projects">
+        <h2 class="card-title">Projects &amp; Ventures</h2>
+
+        <div class="project-item">
+          <div class="project-header">
+            <p class="project-name"><a href="https://tryadmade.com" target="_blank" rel="noopener">Admade</a></p>
+            <span class="project-type">AI SaaS · Founder</span>
+          </div>
+          <p class="project-desc">AI ad creative generator — transforms a product brief into production-ready ad copy for Meta, TikTok, and Google in minutes. Built end-to-end: concept, LLM prompt architecture, UI, and GTM.</p>
+          <div class="project-stack">
+            <span class="stack-tag">LLM APIs</span>
+            <span class="stack-tag">Claude / GPT-4o</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Prompt Engineering</span>
+            <span class="stack-tag">Lovable</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <p class="project-name"><a href="https://jynlab.com" target="_blank" rel="noopener">JYNLAB</a></p>
+            <span class="project-type">Consultancy</span>
+          </div>
+          <p class="project-desc">Performance marketing consultancy specializing in Meta Ads for SaaS and e-commerce clients. Delivered <strong>7.2× ROAS and −58% CPA</strong> within 90 days of engagement.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Meta Ads</span>
+            <span class="stack-tag">Funnel Analytics</span>
+            <span class="stack-tag">Creative Strategy</span>
+            <span class="stack-tag">CAPI</span>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+</div>
+</body>
+</html>
