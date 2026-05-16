@@ -405,19 +405,26 @@
     line-height: 1.5;
   }
 
-  /* SIDEBAR SKILLS */
+  /* HIGH-CONTRAST NEON SKILLS GROUP (UPDATED FOR BRIGHTNESS) */
   .skills-group {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   .skills-group-label {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
-    color: var(--faint);
-    font-weight: 500;
-    margin-bottom: 8px;
+    color: var(--text);
+    font-weight: 700;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .skills-group-label::before {
+    content: '>';
+    color: var(--accent2);
   }
 
   .chips {
@@ -427,22 +434,50 @@
   }
 
   .chip {
-    padding: 3px 9px;
+    padding: 4px 10px;
     border-radius: 4px;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.02em;
     border: 1px solid;
     transition: all 0.2s;
   }
-  .chip.blue { background: rgba(124,111,247,0.08); border-color: rgba(124,111,247,0.25); color: var(--accent2); }
-  .chip.blue:hover { border-color: var(--accent); background: rgba(124,111,247,0.15); }
   
-  .chip.green { background: rgba(45,212,191,0.06); border-color: rgba(45,212,191,0.2); color: var(--teal); }
-  .chip.green:hover { border-color: var(--teal); background: rgba(45,212,191,0.12); }
+  /* Product Group */
+  .chip.blue { 
+    background: rgba(165, 148, 255, 0.05); 
+    border-color: rgba(165, 148, 255, 0.6); 
+    color: #c9bfff; 
+  }
+  .chip.blue:hover { 
+    border-color: #ffffff; 
+    background: rgba(165, 148, 255, 0.2); 
+    color: #ffffff;
+  }
   
-  .chip.purple { background: rgba(165,148,255,0.08); border-color: rgba(165,148,255,0.25); color: #bcaeff; }
-  .chip.purple:hover { border-color: var(--accent2); background: rgba(165,148,255,0.15); }
+  /* Growth/AdTech Group */
+  .chip.green { 
+    background: rgba(45, 212, 191, 0.04); 
+    border-color: rgba(45, 212, 191, 0.7); 
+    color: #67eedb; 
+  }
+  .chip.green:hover { 
+    border-color: #ffffff; 
+    background: rgba(45, 212, 191, 0.18); 
+    color: #ffffff;
+  }
+  
+  /* Engineering Group */
+  .chip.purple { 
+    background: rgba(124, 111, 247, 0.05); 
+    border-color: rgba(124, 111, 247, 0.75); 
+    color: #b0a5ff; 
+  }
+  .chip.purple:hover { 
+    border-color: #ffffff; 
+    background: rgba(124, 111, 247, 0.2); 
+    color: #ffffff;
+  }
 
   /* EDUCATION */
   .edu-card {
@@ -504,12 +539,13 @@
     gap: 5px;
   }
   .region-tag {
-    font-size: 10.5px;
-    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
     background: var(--surface2);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
     border-radius: 4px;
-    color: var(--muted);
+    color: var(--text); 
   }
 
   /* PRINT BUTTON */
@@ -763,7 +799,7 @@
         </div>
       </section>
 
-      <!-- TECH STACK -->
+      <!-- TECH STACK (UPDATED CONTRAST VIBRANT CHIPS) -->
       <section class="section">
         <div class="section-label">Tech Stack</div>
 
@@ -857,11 +893,9 @@
       const progress = Math.min((timestamp - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       
-      // Handle negative signs or floats if necessary
       if(target < 0) {
         el.textContent = '-' + Math.round(eased * Math.abs(target)) + suffix;
       } else {
-        // checks for float value like 7.2
         const isFloat = target % 1 !== 0;
         el.textContent = (isFloat ? (eased * target).toFixed(1) : Math.round(eased * target)) + suffix;
       }
@@ -877,10 +911,9 @@
       if (entry.isIntersecting) {
         const el = entry.target;
         const text = el.textContent;
-        // Parse numbers including dots, dashes, and multipliers
         const match = text.match(/^([−-]?\d+\.?\d*)(.*)$/);
         if (match) {
-          let numVal = match[1].replace('−', '-'); // unify minus sign
+          let numVal = match[1].replace('−', '-'); 
           animateCount(el, parseFloat(numVal), match[2]);
         }
         observer.unobserve(el);
