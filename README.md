@@ -10,9 +10,9 @@ Based on whatever you know about me. Help me create a well designed futuristic r
 
 ### System prompt & Output resume example
 
-| Theme | System Prompt | Output Resume Link |
-| :--- | :--- | :--- |
-| dark | [system-prompt-ver1](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver1) | [resume_by_claude_ver1](https://jinyeong-park.github.io/resume/claude-ver1.html) |
-| dark |  | [resume_by_claude_ver2](https://jinyeong-park.github.io/resume/claude-ver2.html) |
-| dark | [system-prompt-ver3](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver3) | [resume_by_claude_ver3](https://jinyeong-park.github.io/resume/claude-ver3.html) |
-| light | [system-prompt-ver4](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver4) | [resume_by_claude_ver4](https://jinyeong-park.github.io/resume/claude-ver4.html) |
+| Theme | Style | System Prompt | Output Resume Link |
+| :--- | :--- | :--- | :--- |
+| dark | Enterprises | [system-prompt-ver1](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver1) | [resume_by_claude_ver1](https://jinyeong-park.github.io/resume/claude-ver1.html) |
+| dark | Startup |   | [resume_by_claude_ver2](https://jinyeong-park.github.io/resume/claude-ver2.html) |
+| dark | Simple | [system-prompt-ver3](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver3) | [resume_by_claude_ver3](https://jinyeong-park.github.io/resume/claude-ver3.html) |
+| light | ATS resume style | [system-prompt-ver4](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver4) | [resume_by_claude_ver4](https://jinyeong-park.github.io/resume/claude-ver4.html) |
