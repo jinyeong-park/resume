@@ -1,0 +1,79 @@
+You are an expert Frontend Developer and Technical Resume Designer. Your goal is to generate a premium, interactive HTML/CSS resume for a multi-disciplinary operator based on the provided user profile text. 
+
+You must strictly adhere to the following design system, structure, and constraints to ensure visual consistency:
+
+1. CORE DESIGN PRINCIPLES & STYLE
+- Aesthetic: Neo-minimalist, technical, clean, and data-driven light theme (hybrid dashboard style).
+- Grid System: Clean responsive layout using a 2-column main body layout on desktop and single-column on mobile. Use subtle background grid lines (50px by 50px using gradients).
+- Typography: Use Google Fonts. Import 'Syne' (for large, bold headers/numbers), 'JetBrains Mono' (for labels, tech indicators, metadata), and 'DM Sans' (for body copy and details).
+- Animations: Smooth state transitions (0.15s - 0.2s) on hover for cards, badges, and timeline nodes.
+
+2. DESIGN SYSTEM (CSS VARIABLES)
+You must define and strictly use these variables:
+- --bg-main: #F8F9FA;
+- --bg-card: #FFFFFF;
+- --border-light: #E2E8F0;
+- --border-md: #CBD5E1;
+- --text-primary: #1E293B;
+- --text-secondary: #475569;
+- --text-dim: #64748B;
+- --blue: #2563EB; --blue-dim: rgba(37, 99, 235, 0.06); (For Primary Role/Tech tags)
+- --green: #059669; --green-dim: rgba(5, 150, 105, 0.08); (For Core Metrics & Numbers)
+- --purple: #7C3AED; --purple-dim: rgba(124, 58, 237, 0.06); (For Global/Secondary tags)
+- --shadow-soft: 0 10px 30px -10px rgba(148, 163, 184, 0.12);
+- --shadow-card: 0 4px 20px 0 rgba(148, 163, 184, 0.08);
+
+3. REQUIRED COMPONENT STRUCTURE
+- Hero Header: Large bold name in 'Syne'. Right-aligned contact badge containing micro-links with simple SVG icons (Email, LinkedIn, GitHub, Portfolios) and location. A tagline bar with colored role tags. A summary box styled beautifully.
+- Metrics Dashboard Bar: A 5-column grid bar right below the hero displaying key high-impact numbers (e.g., ROAS, Team size, Years of Exp) in oversized bold typography to capture attention instantly.
+- Main Layout (2-Column Split):
+  * Left Column (Main Content): 'Experience' timeline with a continuous vertical line and expanding nodes on hover. Within experience bullets, specific metric highlights must be wrapped in a green colored pill text class (`.m`), and technical keywords wrapped in bold (`.h`). Include an inner project card (`.project-card`) if a specific product launch is highlighted.
+  * Right Column (Sidebar): Clean stacked cards (`.r-card`) for Education, Tech Stack (categorized with semantic labels like Product, AI, Engineering and wrapped in neat interactive chips), and secondary achievements (e.g., Global Footprint).
+
+4. ATS CORRELATION & PRINT OPTIMIZATION
+- The code must be clean, semantic HTML5 without using external UI frameworks (Tailwind/Bootstrap) to ensure maximum copy-paste adaptability.
+- Implement an `@media print` print-override stylesheet that forces a clean black-and-white presentation, hides background grid animations, removes box-shadows, and optimizes margins for a clean A4/Letter PDF print output.
+
+Please process the user's information and generate a complete, production-ready index.html code wrapped in a single code block. Do not truncate the text. Keep all textual content precise and business-focused.
+
+[user resume infomation]
+
+Jenny Park — Resume Info
+
+Email: byjennypark@gmail.com · LinkedIn: linkedin.com/in/jennypark7 · GitHub: github.com/jinyeong-park
+
+Location: San Jose, CA · Silicon Valley · Sites: jynlab.com · tryadmade.com
+
+Positioning: Performance Marketing Manager · Media Buyer · Product Manager · AdTech & AI Builder
+
+Career Path: Media Buyer → Performance Marketing Manager → AdTech Product Manager
+
+Experience
+
+PeriodRoleCompany2025–PresentFounder · Performance Marketing ManagerJYNLAB (Meta Ads consultancy) + building Admade2024Product Manager (AI Focus)SAP2023Freelance Digital MarketerSelf (Threads, SMB & SaaS founders)2021Software Developer InternSAP2020Software Engineer | PM · Early TeamStealth Startup · Sports Trading Card (SF Bay Area, first funding round)2014–2017Business Data Analyst · Project ManagerHyundai Motor Company (Kolao Group) · SE Asia2008–2012International Cabin CrewGulf Air · Middle East (40+ countries)
+
+Key metrics: JYNLAB — 7.2× ROAS, −58% CPA within 90 days
+
+Admade: AI ad creative generator — idea → ready-to-run copy for Meta/TikTok/Google in minutes
+
+Education
+
+M.S. MCIT — University of Pennsylvania (2021–2025)
+
+Software Engineering Bootcamp — Hack Reactor (2019–2020)
+
+Data Analytics — Santa Clara University (2019)
+
+B.A. Business Administration (Marketing) — Ajou University
+
+Skills
+
+Product: Strategy, Roadmapping, PRD, User Research, Agile, A/B Testing
+
+Growth/AdTech: Meta/TikTok/YouTube/LinkedIn Ads, Funnel Analytics, ROAS Optimization
+
+Engineering: Python, SQL, JavaScript, React, Node.js, REST APIs, Git
+
+AI & Data: Prompt Engineering, LLM APIs, Claude/GPT-4o, Google AI Studio, Prototyping, Lovable
+
+Global: 3 continents · 40+ countries · US / Korea / Middle East / SE Asia
