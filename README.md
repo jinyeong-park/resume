@@ -9,3 +9,7 @@ Based on whatever you know about me. Help me create a well designed futuristic r
 ```
 
 ### Output resume example
+
+[resume_by_claude_ver1](https://jinyeong-park.github.io/resume/claude-ver1.html)
+
+[resume_by_claude_ver2](https://jinyeong-park.github.io/resume/claude-ver2.html)
