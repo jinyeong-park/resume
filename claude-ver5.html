@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenny Park — Product Manager · AdTech · AI Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-main:       #F8F9FA;
+    --bg-card:       #FFFFFF;
+    --border-light:  #E2E8F0;
+    --border-md:     #CBD5E1;
+    --text-primary:  #1E293B;
+    --text-secondary:#475569;
+    --text-dim:      #64748B;
+    
+    /* Brand Accent Colors */
+    --blue:          #2563EB;
+    --blue-dim:      rgba(37, 99, 235, 0.06);
+    --green:         #059669;
+    --green-dim:     rgba(5, 150, 105, 0.08);
+    --purple:        #7C3AED;
+    --purple-dim:    rgba(124, 58, 237, 0.06);
+    
+    --shadow-soft:   0 10px 30px -10px rgba(148, 163, 184, 0.12), 0 1px 3px rgba(148, 163, 184, 0.05);
+    --shadow-card:   0 4px 20px 0 rgba(148, 163, 184, 0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── GRID LINES BACKGROUND (Light Ver.) ─── */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none; z-index: 0;
+  }
+
+  .page-wrap {
+    position: relative; z-index: 1;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+  }
+
+  /* ─── HERO SECTION ─── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px dashed var(--border-md);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 2px;
+    background: var(--blue);
+  }
+
+  h1.name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(48px, 6.5vw, 76px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+
+  .tagline-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .tag-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .tag-role.blue   { color: var(--blue);   border: 1px solid rgba(37, 99, 235, 0.2);   background: var(--blue-dim); }
+  .tag-role.green  { color: var(--green);  border: 1px solid rgba(5, 150, 105, 0.2);   background: var(--green-dim); }
+  .tag-role.purple { color: var(--purple); border: 1px solid rgba(124, 58, 237, 0.2); background: var(--purple-dim); }
+
+  /* Neumorphic Summary Box */
+  .summary-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 22px 26px;
+    max-width: 680px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    box-shadow: var(--shadow-soft);
+  }
+  .summary-box strong { color: var(--text-primary); font-weight: 700; }
+
+  /* ─── CONTACT BADGE ─── */
+  .contact-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 220px;
+    padding: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: var(--bg-main);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .contact-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-dim);
+    transform: translateY(-1px);
+  }
+  .contact-loc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin: 4px 0 2px;
+  }
+
+  /* ─── METRICS DASHBOARD (3번 컨셉 수치 전면 강조) ─── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .stat-cell {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 20px 14px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .stat-cell:hover { 
+    transform: translateY(-2px); 
+    border-color: var(--border-md);
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green); /* 핵심 성과는 강렬한 에메랄드 그린 고정 */
+    line-height: 1.1;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .stat-num.blue   { color: var(--blue); }
+  .stat-num.purple { color: var(--purple); }
+  .stat-num.dark   { color: var(--text-primary); }
+  
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-md);
+  }
+
+  /* ─── TIMELINE DESIGN (4번의 안정적인 구조) ─── */
+  .timeline { position: relative; padding-left: 4px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 2px;
+    background: var(--border-light);
+  }
+
+  .tl-item {
+    padding-left: 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+
+  .tl-dot {
+    position: absolute;
+    left: -4px; top: 6px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--bg-main);
+    border: 2px solid var(--border-md);
+    transition: all 0.2s ease;
+  }
+  .tl-item:hover .tl-dot {
+    border-color: var(--blue);
+    background: var(--blue);
+    box-shadow: 0 0 0 4px var(--blue-dim);
+  }
+
+  .tl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .tl-role {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .tl-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-dim);
+  }
+  .tl-company {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+  .tl-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tl-bullets li {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .tl-bullets li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-weight: bold;
+  }
+  /* 성과 지표용 강조 스냅인 컬러 처리 */
+  .tl-bullets li .m { color: var(--green); font-weight: 700; background: var(--green-dim); padding: 1px 4px; border-radius: 4px; }
+  .tl-bullets li .h { color: var(--text-primary); font-weight: 600; }
+
+  /* ─── PROJECT COMPONENT ─── */
+  .project-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 14px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.01);
+  }
+  .project-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .project-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ─── RIGHT SIDEBAR CARDS ─── */
+  .right-col { display: flex; flex-direction: column; gap: 32px; }
+
+  .r-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .edu-item { margin-bottom: 16px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .edu-school {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--text-dim);
+  }
+
+  /* ─── CHIPS / BADGES (ATS 완벽 호환 가능 구조) ─── */
+  .skill-group { margin-bottom: 18px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-md);
+    color: var(--text-secondary);
+    background: var(--bg-main);
+    transition: all 0.15s ease;
+  }
+  .chip:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+    background: var(--purple-dim);
+    transform: translateY(-1px);
+  }
+  .chip.blue { border-color: var(--border-md); }
+  .chip.blue:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-dim); }
+  .chip.green { border-color: var(--border-md); }
+  .chip.green:hover { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+
+  /* ─── GLOBAL FOOTPRINT BADGE ─── */
+  .global-badge {
+    text-align: center;
+    background: var(--bg-main);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--border-light);
+  }
+  .global-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--purple);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .global-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .global-regions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  /* ─── ENHANCED PRINT SYSTEM (A4용 오버라이드) ─── */
+  @media print {
+    body { background: #FFFFFF; color: #000000; }
+    body::after { display: none; }
+    .page-wrap { padding: 20px; }
+    .r-card, .summary-box, .contact-badge, .stat-cell {
+      box-shadow: none !important;
+      border: 1px solid #CBD5E1 !important;
+      background: #FFFFFF !important;
+    }
+    .stat-num, .tl-bullets li .m { color: #047857 !important; }
+    .tl-company, .eyebrow { color: #1D4ED8 !important; }
+    .skill-group-name { color: #6D28D9 !important; }
+    .chip { background: #FFFFFF !important; border-color: #94A3B8 !important; color: #334155 !important; }
+  }
+
+  /* ─── RESPONSIVE STYLES ─── */
+  @media (max-width: 960px) {
+    .body-grid { grid-template-columns: 1fr; gap: 32px; }
+    .stats-bar { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  }
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 24px; }
+    .contact-badge { flex-direction: row; flex-wrap: wrap; min-width: 0; }
+    .contact-btn { flex: 1 1 calc(50% - 10px); min-width: 140px; justify-content: center; }
+  }
+  @media (max-width: 520px) {
+    .page-wrap { padding: 30px 20px 60px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .contact-btn { flex: 1 1 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="hero">
+    <div class="hero-left">
+      <div class="eyebrow">Product · AdTech · AI Builder</div>
+      <h1 class="name">Jenny Park</h1>
+      <div class="tagline-bar">
+        <span class="tag-role blue">Perf. Marketing Manager</span>
+        <span class="tag-role green">Media Buyer</span>
+        <span class="tag-role purple">AdTech Product Manager</span>
+      </div>
+      <div class="summary-box">
+        <strong>Multi-disciplinary operator</strong> bridging performance marketing and product engineering — from Meta Ads strategy to shipping AI-native tooling. Founder of <strong>JYNLAB</strong> (7.2× ROAS, −58% CPA in 90 days) and <strong>Admade</strong>, an AI ad creative generator built for modern media buyers. Ex-SAP PM (AI Focus) · M.S. MCIT, UPenn · Rooted in Silicon Valley.
+      </div>
+    </div>
+
+    <div class="contact-badge">
+      <a href="mailto:byjennypark@gmail.com" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        byjennypark@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/jennypark7" target="_blank" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 10v7m0-4a3 3 0 0 1 6 0v4"/></svg>
+        /in/jennypark7
+      </a>
+      <a href="https://github.com/jinyeong-park" target="_blank" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        github.com/jinyeong-park
+      </a>
+      <a href="https://jynlab.com" target="_blank" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        jynlab.com
+      </a>
+      <a href="https://tryadmade.com" target="_blank" class="contact-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        tryadmade.com
+      </a>
+      <div class="contact-loc">📍 San Jose, CA · Silicon Valley</div>
+    </div>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stat-cell">
+      <div class="stat-num">7.2×</div>
+      <div class="stat-label">ROAS Achieved</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">−58%</div>
+      <div class="stat-label">CPA Reduction</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num blue">10+</div>
+      <div class="stat-label">YRS Experience</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num dark">2×</div>
+      <div class="stat-label">SAP Internships</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num purple">40+</div>
+      <div class="stat-label">Countries Footprint</div>
+    </div>
+  </div>
+
+  <div class="body-grid">
+
+    <main>
+      <div class="section-label">Experience</div>
+
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Founder · Performance Marketing Manager</div>
+            <div class="tl-period">2025 — Present</div>
+          </div>
+          <div class="tl-company">JYNLAB · San Jose, CA</div>
+          <ul class="tl-bullets">
+            <li>Launched boutique Meta Ads consultancy; scaled client campaigns to <span class="m">7.2× ROAS</span> and <span class="m">−58% CPA</span> within 90 days through precision audience segmentation and creative testing.</li>
+            <li>Architected full-funnel attribution systems integrating <span class="h">Conversion API, Meta Pixel,</span> and UTM frameworks to close signal gaps and improve bid optimization.</li>
+            <li>Built <span class="h">Admade</span> — AI-powered ad creative generator that converts raw product ideas into ready-to-run copy for Meta, TikTok, and Google in minutes.</li>
+            <li>Prototyped and deployed product using <span class="h">LLM APIs, React, Node.js,</span> and Lovable; independently managed roadmap, PRD, and GTM strategy.</li>
+          </ul>
+          <div class="project-card">
+            <div class="project-name">⚡ Admade · tryadmade.com</div>
+            <div class="project-desc">AI ad creative generator built for performance marketers. Input a product; output scroll-stopping copy optimized per platform. Powered by Claude & GPT-4o.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Product Manager — AI Focus</div>
+            <div class="tl-period">2024</div>
+          </div>
+          <div class="tl-company">SAP · Silicon Valley</div>
+          <ul class="tl-bullets">
+            <li>Defined AI feature roadmap and authored PRDs for enterprise-grade LLM integrations within SAP's product suite.</li>
+            <li>Conducted user research and A/B testing cycles to validate AI-assisted workflows; synthesized findings into actionable product requirements.</li>
+            <li>Collaborated cross-functionally with engineering, design, and data science to ship iterative product improvements aligned to OKRs.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Freelance Digital Marketer</div>
+            <div class="tl-period">2023</div>
+          </div>
+          <div class="tl-company">Self-Employed · SMB & SaaS Founders</div>
+          <ul class="tl-bullets">
+            <li>Managed paid social and organic growth strategies for SMB and SaaS clients across <span class="h">Threads, Instagram,</span> and Meta Ads.</li>
+            <li>Delivered funnel analytics, creative briefs, and campaign optimization recommendations that improved CTRs and conversion rates.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Software Developer Intern</div>
+            <div class="tl-period">2021</div>
+          </div>
+          <div class="tl-company">SAP · Silicon Valley</div>
+          <ul class="tl-bullets">
+            <li>Developed and shipped features in an enterprise codebase using <span class="h">JavaScript, React,</span> and REST APIs.</li>
+            <li>Participated in Agile sprint cycles; contributed to code reviews, technical documentation, and QA workflows.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Software Engineer · PM — Early Team</div>
+            <div class="tl-period">2020</div>
+          </div>
+          <div class="tl-company">Stealth Startup · Sports Trading Card · SF Bay Area</div>
+          <ul class="tl-bullets">
+            <li>Joined as an early founding team member during <span class="h">first funding round;</span> wore dual hats across engineering and product ownership.</li>
+            <li>Designed and implemented core marketplace features; contributed to product strategy and investor-facing roadmap artifacts.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Business Data Analyst · Project Manager</div>
+            <div class="tl-period">2014 — 2017</div>
+          </div>
+          <div class="tl-company">Hyundai Motor Company (Kolao Group) · SE Asia</div>
+          <ul class="tl-bullets">
+            <li>Managed cross-border business analytics and project delivery across <span class="h">Southeast Asian markets</span> for one of Korea's largest automotive conglomerates.</li>
+            <li>Produced data-driven reporting and market analysis that informed regional distribution and sales strategy decisions.</li>
+            <li>Coordinated multi-stakeholder projects bridging Korean HQ, regional offices, and local partners across Vietnam, Laos, and Cambodia.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">International Cabin Crew</div>
+            <div class="tl-period">2008 — 2012</div>
+          </div>
+          <div class="tl-company">Gulf Air · Middle East</div>
+          <ul class="tl-bullets">
+            <li>Represented Gulf Air across <span class="m">40+ countries</span> as a customer-facing brand ambassador; developed elite cross-cultural communication and crisis management skills.</li>
+            <li>Operated in high-stakes, time-sensitive environments requiring rigorous safety compliance and real-time decision-making.</li>
+          </ul>
+        </div>
+
+      </div>
+    </main>
+
+    <aside class="right-col">
+
+      <div class="r-card">
+        <div class="section-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">M.S. MCIT</div>
+          <div class="edu-school">University of Pennsylvania · 2021–2025</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Software Engineering Bootcamp</div>
+          <div class="edu-school">Hack Reactor · 2019–2020</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Data Analytics Certificate</div>
+          <div class="edu-school">Santa Clara University · 2019</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">B.A. Business Administration (Marketing)</div>
+          <div class="edu-school">Ajou University</div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="section-label">Tech Stack</div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Product</div>
+          <div class="skill-chips">
+            <span class="chip blue">Strategy</span>
+            <span class="chip blue">Roadmapping</span>
+            <span class="chip blue">PRD</span>
+            <span class="chip blue">User Research</span>
+            <span class="chip blue">Agile</span>
+            <span class="chip blue">A/B Testing</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Growth · AdTech</div>
+          <div class="skill-chips">
+            <span class="chip green">Meta Ads</span>
+            <span class="chip green">TikTok Ads</span>
+            <span class="chip green">YouTube Ads</span>
+            <span class="chip green">LinkedIn Ads</span>
+            <span class="chip green">ROAS Opt.</span>
+            <span class="chip green">Funnel Analytics</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Engineering</div>
+          <div class="skill-chips">
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">AI · Data</div>
+          <div class="skill-chips">
+            <span class="chip blue">Prompt Eng.</span>
+            <span class="chip blue">LLM APIs</span>
+            <span class="chip blue">Claude</span>
+            <span class="chip blue">GPT-4o</span>
+            <span class="chip blue">Google AI Studio</span>
+            <span class="chip blue">Lovable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <div class="section-label">Global Footprint</div>
+        <div class="global-badge">
+          <div class="global-num">40+</div>
+          <div class="global-label">Countries · 3 Continents</div>
+          <div class="global-regions">
+            <span class="chip">🇺🇸 US</span>
+            <span class="chip">🇰🇷 Korea</span>
+            <span class="chip">🌏 SE Asia</span>
+            <span class="chip">🌍 Middle East</span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+</div>
+</body>
+</html>
