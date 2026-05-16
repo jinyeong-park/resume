@@ -176,6 +176,13 @@
     transition: color 0.2s;
   }
 
+  /* 링크 스타일 수정: 기본 밑줄 제거 및 상위 항목 색상 상속 */
+  .contact-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
   .contact-item:hover { color: var(--text); }
 
   .contact-dot {
@@ -487,7 +494,6 @@
 
 <div class="page">
 
-  <!-- HEADER -->
   <header class="header">
     <div class="name-block">
       <div class="name-prefix">// portfolio · 2026</div>
@@ -521,15 +527,12 @@
     </div>
   </header>
 
-  <!-- SUMMARY -->
   <div class="summary">
     Multi-disciplinary technologist with a rare arc: from international cabin crew and English instructor across the Middle East &amp; Southeast Asia, to software engineering graduate of UPenn, to building JYNLAB — a performance media buying operation. I bring engineering rigor, global business instincts, and hands-on AI fluency to every campaign.
   </div>
 
-  <!-- BODY -->
   <div class="body-grid">
 
-    <!-- LEFT COLUMN: EXPERIENCE -->
     <main>
 
       <section class="section">
@@ -602,10 +605,8 @@
 
     </main>
 
-    <!-- RIGHT COLUMN: SIDEBAR -->
     <aside class="sidebar">
 
-      <!-- STATS -->
       <section class="section">
         <div class="section-label">At a Glance</div>
         <div class="stat-grid">
@@ -628,7 +629,6 @@
         </div>
       </section>
 
-      <!-- EDUCATION -->
       <section class="section">
         <div class="section-label">Education</div>
 
@@ -658,7 +658,6 @@
 
       </section>
 
-      <!-- SKILLS -->
       <section class="section">
         <div class="section-label">Technical Skills</div>
 
@@ -707,7 +706,6 @@
         </div>
       </section>
 
-      <!-- GLOBAL FOOTPRINT -->
       <section class="section">
         <div class="section-label">Global Footprint</div>
         <div class="globe-row">
