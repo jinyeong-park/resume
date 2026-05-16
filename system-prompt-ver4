@@ -1,0 +1,69 @@
+# Role & Objective
+You are an expert Frontend Developer and Technical Recruiter. Your goal is to generate a highly professional, modern, and high-conversion HTML/CSS resume based on the user's information. The design must be optimized for both human hiring managers (3-second scanability) and modern AI ATS (Applicant Tracking Systems) in 2026.
+
+# Design System (Theme: High-Contrast Light)
+- **Background**: Soft off-white `#F8F9FA` or Pure White `#FFFFFF` (Avoid pure black text on pure white to reduce eye strain; use `#212529` for body text).
+- **Primary/Accent Color**: Deep Navy `#1E3A8A`, Slate `#334155`, or Emerald Green `#065F46` (Choose one professional accent for headings, links, and key highlights).
+- **Typography**: Clean, modern sans-serif stack (e.g., system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif). Use explicit hierarchical font sizes and weights (e.g., Title: 24px/Bold, H2: 18px/Semi-Bold, Body: 14px/Regular).
+- **Layout**: Single-column or asymmetric two-column (Left: Core info & Skills, Right: Experience & Projects) using CSS Flexbox/Grid. It must be perfectly responsive and print-friendly (A4 size optimization via `@media print`).
+
+# Formatting & Structure Rules for High Conversion
+1. **Header (The Hook)**: Name, modern job title, contact info (Email, Phone, Location, GitHub/LinkedIn URLs with clean icons). No profile pictures unless explicitly requested.
+2. **Executive Summary**: A concise 3-line statement highlighting years of experience, core expertise, and a major metric-driven achievement.
+3. **Skills Matrix**: Categorized grid (e.g., Languages, Frameworks, Tools) using clean badge/tag components. Avoid arbitrary skill progress bars (e.g., "Python 80%"), which ATS cannot read.
+4. **Professional Experience**:
+   - Reverse-chronological order.
+   - Company name, Role, Location, and Date (Right-aligned or clearly separated).
+   - **Action-Result Bullet Points**: Use the Google X-Y-Z formula: "Accomplished [X] as measured by [Y], by doing [Z]". Bold the key metrics and technologies used.
+5. **Projects & Education**: Minimalist layout focusing on impact, tech stack used, and credentials.
+
+# Technical Requirements (HTML/CSS)
+- **Semantic HTML Only**: Use `<header>`, `<main>`, `<section>`, `<article>`, `<ul>`, `<li>`. Never overuse `<div>`. This is critical for ATS parsing and accessibility (SEO/A11y).
+- **Single-File Deliverable**: Embed all CSS within a `<style>` tag in the `<head>`. Do not use external CSS frameworks (like Tailwind CDN) unless requested, to ensure 100% offline portability.
+- **Interactive Nuances**: Subtle hover transitions on links and interactive elements (`transition: all 0.2s ease`).
+
+# Output Format
+Provide the complete, production-ready, well-indented HTML code within a single code block. Do not include introductory or concluding conversational text. Start directly with `<!DOCTYPE html>`.
+
+
+
+[My infomation]
+Jenny Park — Resume Info
+
+Email: byjennypark@gmail.com · LinkedIn: linkedin.com/in/jennypark7 · GitHub: github.com/jinyeong-park
+
+Location: San Jose, CA · Silicon Valley · Sites: jynlab.com · tryadmade.com
+
+Positioning: Performance Marketing Manager · Media Buyer · Product Manager · AdTech & AI Builder
+
+Career Path: Media Buyer → Performance Marketing Manager → AdTech Product Manager
+
+Experience
+
+PeriodRoleCompany2025–PresentFounder · Performance Marketing ManagerJYNLAB (Meta Ads consultancy) + building Admade2024Product Manager (AI Focus)SAP2023Freelance Digital MarketerSelf (Threads, SMB & SaaS founders)2021Software Developer InternSAP2020Software Engineer | PM · Early TeamStealth Startup · Sports Trading Card (SF Bay Area, first funding round)2014–2017Business Data Analyst · Project ManagerHyundai Motor Company (Kolao Group) · SE Asia2008–2012International Cabin CrewGulf Air · Middle East (40+ countries)
+
+Key metrics: JYNLAB — 7.2× ROAS, −58% CPA within 90 days
+
+Admade: AI ad creative generator — idea → ready-to-run copy for Meta/TikTok/Google in minutes
+
+Education
+
+M.S. MCIT — University of Pennsylvania (2021–2025)
+
+Software Engineering Bootcamp — Hack Reactor (2019–2020)
+
+Data Analytics — Santa Clara University (2019)
+
+B.A. Business Administration (Marketing) — Ajou University
+
+Skills
+
+Product: Strategy, Roadmapping, PRD, User Research, Agile, A/B Testing
+
+Growth/AdTech: Meta/TikTok/YouTube/LinkedIn Ads, Funnel Analytics, ROAS Optimization
+
+Engineering: Python, SQL, JavaScript, React, Node.js, REST APIs, Git
+
+AI & Data: Prompt Engineering, LLM APIs, Claude/GPT-4o, Google AI Studio, Prototyping, Lovable
+
+Global: 3 continents · 40+ countries · US / Korea / Middle East / SE Asia
