@@ -16,3 +16,4 @@ Based on whatever you know about me. Help me create a well designed futuristic r
 | dark | B2B SaaS Companies |   | [resume_by_claude_ver2](https://jinyeong-park.github.io/resume/claude-ver2.html) |
 | dark | Startups, Growth/AI PM | [system-prompt-ver3](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver3) | [resume_by_claude_ver3](https://jinyeong-park.github.io/resume/claude-ver3.html) |
 | light | Traditional Fortune 500, Enterprise Companies & Strict ATS Screenings | [system-prompt-ver4](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver4) | [resume_by_claude_ver4](https://jinyeong-park.github.io/resume/claude-ver4.html) |
+| light | Growth-Stage, Data-Driven B2B SaaS | [system-prompt-ver4](https://github.com/jinyeong-park/resume/blob/main/system-prompt-ver5) | [resume_by_claude_ver4](https://jinyeong-park.github.io/resume/claude-ver5.html) |
