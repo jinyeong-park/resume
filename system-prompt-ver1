@@ -1,4 +1,6 @@
-### used promopt
+### used promopt (Based on your information, Claude or other LLMs remember your profile and create an HTML resume for you.) 
+Please copy and paste the prompt below into your chat.
+
 ```
 Based on whatever you know about me. Help me create a well designed futuristic resume for myself. The resume should be in html, css, and javascript all in one file.
 ```
